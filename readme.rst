@@ -1,71 +1,20 @@
-###################
-What is CodeIgniter
-###################
+# Projeto em CodeIgniter 3 com Bootstrap 5
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+## O que é o CodeIgniter
 
-*******************
-Release Information
-*******************
+CodeIgniter é um Framework de Desenvolvimento de Aplicações - um conjunto de ferramentas - para pessoas que constroem sites usando PHP. O objetivo é permitir que você desenvolva projetos muito mais rápido do que se estivesse escrevendo código do zero, fornecendo um rico conjunto de bibliotecas para tarefas comumente necessárias, além de uma interface simples e uma estrutura lógica para acessar essas bibliotecas. O CodeIgniter permite que você se concentre criativamente em seu projeto, minimizando a quantidade de código necessário para uma determinada tarefa.
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+## Informações sobre o lançamento
 
-**************************
-Changelog and New Features
-**************************
+Esta versão do projeto utiliza **CodeIgniter 3** e **Bootstrap 5**. Certifique-se de ter a versão correta do PHP instalada, que deve ser **PHP 7.4.x** ou superior.
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+## Requisitos do Servidor
 
-*******************
-Server Requirements
-*******************
+- PHP versão 7.4.x ou superior
+- Extensões PHP: `mbstring`, `xml`, `json`, `curl`
 
-PHP version 5.6 or newer is recommended.
+## Instalação
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
-
-************
-Installation
-************
-
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
