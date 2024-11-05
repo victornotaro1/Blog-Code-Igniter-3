@@ -7,52 +7,133 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
 </head>
 <body>
-  <div class="jumbotron p-3 p-md-5 text-white rounded bg-success">
+<?php foreach (array_slice($posts, 0, 1) as $index => $post) : ?>
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-success" 
+         style="background-image: url('<?= !empty($post["image_url"]) ? $post["image_url"] : '' ?>'); background-size: cover; background-position: center;">
         <div class="col-md-6 px-0">
-          <?php foreach (array_slice($posts, 0, 1) as $post) : ?>
-            
-              <h1 class="display-4 font-italic"><?= $post["titulo"] ?></h1>
-              <p class="lead my-3"><?= $post["conteudo"] ?></p>
-              <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue lendo...</a></p>
-          <?php endforeach; ?>
+            <h1 class="display-4 font-italic"><?= $post["titulo"] ?></h1>
+             <p class="lead my-3"><?= $post["conteudo"] ?></p>
+            <button type="button" class="btn" data-toggle="modal" data-target="#modal-<?= $index ?>">
+                     <a href="#" class="text-light">Continue lendo</a>
+            </button>
         </div>
-    </div>
+    </div> 
+
+    <div class="modal fade" id="modal-<?= $index ?>" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado-<?= $index ?>" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalCentralizado-<?= $index ?>"><?= $post["titulo"] ?></h5>
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?= $post["conteudo"] ?>
+                    
+                    <div class="video-container">
+                      <iframe width="100%" height="100%" src="<?= $post["video_url"] ?>" 
+                              title="YouTube video player" frameborder="0" 
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                      </iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+<?php endforeach; ?>
     
 <div class="row mb-2">
-  <?php foreach(array_slice($games, 0, 2) as $game) : ?>
-    <div class="col-md-6">
-      <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-        <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary">Jogos</strong>
-                <h3 class="mb-0">
-                  <a class="text-dark" href="#"><?= $game["name"] ?></a>
-                </h3>
-                  <div class="mb-1 text-muted"><?= $game["release_date"] ?></div>
-                    <p class="card-text mb-auto"><?= substr($game["description"], 0, 100) . '...' ?></p>
-                    <p class="text-success"><?= reais($game["price"]) ?></p>
-              <a href="#">Continue lendo</a>
-          </div>
-         <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
-       </div>
+    <?php foreach (array_slice($posts, 1, 2) as $index => $post) : ?>
+        <div class="col-md-6">
+            <div class="card h-100" style="background-image: url('<?= $post['image_url'] ?>'); background-size: cover; background-position: center; height: 300px;">
+                <div class="card-body d-flex flex-column align-items-start" style="background-color: rgba(0, 0, 0, 0.5);">
+                    <strong class="d-inline-block mb-2 text-primary">Jogos</strong>
+                    <h3 class="mb-0">
+                        <a class="text-light" href="#"><?= $post["titulo"] ?></a>
+                    </h3>
+                    <div class="mb-1 text-muted"><?= $post["data_criacao"] ?></div>
+                    <p class="card-text mb-auto text-light"><?= substr($post["conteudo"], 0, 100) . '...' ?></p>
+                    
+                    <button type="button" class="btn" data-toggle="modal" data-target="#modal-<?= $index ?>">
+                     <a href="#" class="text-light">Continue lendo</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal-<?= $index ?>" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado-<?= $index ?>" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalCentralizado-<?= $index ?>"><?= $post["titulo"] ?></h5>
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?= $post["conteudo"] ?>
+                    <img src="<?= $post['image_url'] ?>" alt="Imagem do Post" width="100%" height="100%">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
     </div>
-  <?php endforeach; ?>
+    <?php endforeach; ?>
 </div>
+
+
 
 <main role="main" class="container">
       <div class="row">
         <div class="col-md-8 blog-main">
           <h3 class="pb-3 mb-4 font-italic border-bottom">
-          Noticias de hoje!
           </h3>
-          <?php foreach (array_slice($posts, 1, 3) as $post) : ?>
-            <div class="blog-post">
-              <h2 class="blog-post-title"><?= $post["titulo"] ?></h2>
-              <p class="blog-post-meta">Escrito por <a href="#"><?= $post["autor"] ?></a>, em <?= $post["data_criacao"] ?></p>
-
-              <p><?= $post["conteudo"] ?></p>
-              <hr>
-            </div>    
-          <?php endforeach; ?>    
+          <?php foreach (array_slice($posts, 3, 3) as $index => $post) : ?>
+    <div class="blog-post">
+        <h2 class="blog-post-title"><?= $post["titulo"] ?></h2>
+        <p class="blog-post-meta">Escrito por <a href="#"><?= $post["autor"] ?></a>, em <?= $post["data_criacao"] ?></p>
+        <p><?= $post["conteudo"] ?></p>
+        <div class="text-right">
+          
+          <button type="button" class="btn" data-toggle="modal" data-target="#modal-<?= $index ?>">
+              Continuar Lendo...
+          </button>
+        </div>
+        <hr>
+    </div>  
+    
+    
+    <div class="modal fade" id="modal-<?= $index ?>" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado-<?= $index ?>" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalCentralizado-<?= $index ?>"><?= $post["titulo"] ?></h5>
+                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?= $post["conteudo"] ?>
+                    <img src="<?= $post['image_url'] ?>" alt="Imagem do Post" width="100%" height="100%">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+<?php endforeach; ?>  
 
 
           <nav class="blog-pagination">
@@ -67,6 +148,23 @@
             <h4 class="font-italic">Sobre</h4>
             <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
           </div>
+
+          <div>
+          <h4 class="fst-italic">Recent posts</h4>
+          <?php foreach (array_slice($posts, 6, 2) as $post) : ?>
+          <ul class="list-unstyled">
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+              <img src="<?= $post['image_url'] ?>" alt="Imagem do Post" width="100%" height="96">
+                <div class="col-lg-8">
+                  <h6 class="mb-0"><?= $post["titulo"] ?></h6>
+                  <small class="text-body-secondary"><?= $post["data_criacao"] ?></small>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <?php endforeach; ?>    
 
           <div class="p-3">
             <h4 class="font-italic">Arquivos</h4>
@@ -100,6 +198,7 @@
 
 </main><!-- /.container -->
 </body>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -114,3 +213,10 @@
         text: 'Thumbnail'
       });
 </script>
+
+<style>
+
+.jumbotron.p-3.p-md-5.text-white.rounded.bg-success {
+    margin-top: 20px;
+}
+</style>

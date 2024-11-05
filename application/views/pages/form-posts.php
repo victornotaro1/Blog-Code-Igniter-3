@@ -40,6 +40,20 @@
 
             <div class="col-md-6">
                 <div class="form-group">
+                    <label for="image_url">URL da imagem</label>
+                    <input type="text" class="form-control" name="image_url" id="image_post" placeholder="URL da imagem" value="<?= isset($post['image_url']) ? $post['image_url'] : '' ?>" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="image_url">IFrame do vídeo</label>
+                    <input type="text" class="form-control" name="video_url" id="video_url" placeholder="URL do video" value="<?= isset($post['video_url']) ? $post['video_url'] : '' ?>" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
                     <label for="publicado">Publicado</label>
                     <input type="checkbox" name="publicado" id="publicado" value="1" <?= isset($post['publicado']) && $post['publicado'] ? 'checked' : '' ?>>
                 </div>

@@ -13,8 +13,7 @@ class Home extends CI_Controller {
 	}
 
     public function index() {
-        $dados['title'] = "Minha primeira view no CodeIgniter!";
-        $dados['message'] = "Olá, este é o seu primeiro teste com CodeIgniter 3.";
+        $dados['title'] = "Home - Blog";
         $dados['games'] = $this->home_model->index(); // Adiciona a lista de jogos à variável $data
 		$dados["posts"] = $this->Posts_model->index(); // Recupera todas as postagens
 		

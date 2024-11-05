@@ -32,22 +32,29 @@
 
     <div class="container">
       <header class="blog-header">
-       <nav class="navbar bg-body-tertiary">
-          <div class="container-fluid">
-            <a class="navbar-brand">VNOTARO</a>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </nav>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="<?= base_url('/assets/images/logoVN.png') ?>" alt="VNOTARO Logo" style="height: 50px;">
+          </a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border: none">
+              <button class="btn" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+              </button>
+          </input>
+          </form>
+        </div>
+      </nav>
       </header>
 
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
           <a class="p-2 text-muted" href="<?= base_url() ?>posts">Futebol</a>
           <a class="p-2 text-muted" href="#">Jiu-Jitsu</a>
-          <a class="p-2 text-muted" href="#">Tecnologia</a>
+          <a class="p-2 text-muted" href="#">Politica</a>
           <a class="p-2 text-muted" href="#">Design</a>
           
         </nav>
@@ -74,5 +81,14 @@
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 </html>
+<style>
+  .blog-header .navbar-brand {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Alinha o formulário de pesquisa à direita */
+
+</style>
