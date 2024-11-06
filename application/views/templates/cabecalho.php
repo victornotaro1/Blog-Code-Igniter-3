@@ -9,64 +9,40 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Template de blog usando Bootstrap</title>
-
-    <!-- Principal CSS do Bootstrap -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Estilos customizados para esse template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
-  </head>
-
   <body>
 
     <div class="container">
       <header class="blog-header">
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="<?= base_url() ?>home">
             <img src="<?= base_url('/assets/images/logoVN.png') ?>" alt="VNOTARO Logo" style="height: 50px;">
           </a>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border: none">
-              <button class="btn" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-              </button>
-          </input>
-          </form>
+          <form method="POST" action="<?= base_url('posts/pesquisar') ?>">
+            <div class="form-group position-relative">
+                <input type="text" name="busca" id="busca" class="form-control pl-5" placeholder="Pesquisar">
+                <button class="btn position-absolute" type="submit" style="top: 50%; transform: translateY(-50%); right: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
+
+
         </div>
       </nav>
       </header>
-
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-muted" href="<?= base_url() ?>posts">Futebol</a>
-          <a class="p-2 text-muted" href="#">Jiu-Jitsu</a>
+          <a class="p-2 text-muted" href="<?= base_url() ?>posts/categoria/futebol">Futebol</a>
+          <a class="p-2 text-muted" href="<?= base_url() ?>posts/categoria/ufc">UFC</a>
           <a class="p-2 text-muted" href="#">Politica</a>
           <a class="p-2 text-muted" href="#">Design</a>
           
         </nav>
       </div>
-    <!-- Principal JavaScript do Bootstrap
-    ================================================== -->
-    <!-- Foi colocado no final para a página carregar mais rápido -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
+   
     <script>
       Holder.addTheme('thumb', {
         bg: '#55595c',
@@ -89,6 +65,9 @@
     flex: 1;
 }
 
-/* Alinha o formulário de pesquisa à direita */
+a.p-2.text-muted {
+    color: black !important;
+}
+
 
 </style>

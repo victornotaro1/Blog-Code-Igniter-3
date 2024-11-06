@@ -8,6 +8,8 @@ class Posts extends CI_Controller
         parent::__construct();
         permission(); // Verifica permissões, se necessário
         $this->load->model("Posts_model"); // Carrega o modelo de postagens
+        $this->load->model("buscaPost_model"); // Carrega o modelo de postagens
+        
     }
 
     // Exibe a lista de postagens
@@ -74,4 +76,34 @@ class Posts extends CI_Controller
         $this->Posts_model->destroy($id); // Chama o método de destruição no modelo
         redirect("posts"); // Redireciona para a lista de postagens
     }
+
+    public function pesquisar()
+{
+    // Verifique se o campo busca está presente
+    $busca = $this->input->post("busca");
+    if (empty($busca)) {
+        $dados["resultado"] = [];
+    } else {
+        // Passa apenas o valor de busca para o modelo
+        $dados["resultado"] = $this->buscaPost_model->buscar($busca);
+    }
+
+    // Exibe os resultados
+    $dados["title"] = "Resultado da Pesquisa por *" . $busca . "*";
+
+    $this->load->view('templates/cabecalho', $dados);
+    $this->load->view('pages/result_post', $dados);
+}
+   
+    public function categoria($categoria)
+    {
+        $dados["posts"] = $this->Posts_model->get_posts_by_category($categoria); // Filtra postagens pela categoria
+        $dados["title"] = "Categoria: " . ucfirst($categoria); // Título da página
+
+        // Carrega as views
+        $this->load->view('templates/cabecalho', $dados);
+        $this->load->view('pages/categorias', $dados); // View para listar postagens filtradas
+    }
+
+    
 }

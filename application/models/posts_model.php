@@ -29,4 +29,11 @@ class Posts_model extends CI_Model
         $this->db->where("id", $id);
         return $this->db->delete("tb_post"); // Remove a postagem
     }
+
+    public function get_posts_by_category($categoria)
+    {
+        $this->db->where('categoria', $categoria); // Filtra pela coluna 'categoria'
+        return $this->db->get('tb_post')->result_array(); // Retorna as postagens filtradas
+    }
+
 }
