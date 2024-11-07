@@ -12,36 +12,32 @@
   <body>
 
     <div class="container">
-      <header class="blog-header">
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="<?= base_url() ?>home">
-            <img src="<?= base_url('/assets/images/logoVN.png') ?>" alt="VNOTARO Logo" style="height: 50px;">
-          </a>
-          <form method="POST" action="<?= base_url('posts/pesquisar') ?>">
-            <div class="form-group position-relative">
-                <input type="text" name="busca" id="busca" class="form-control pl-5" placeholder="Pesquisar">
-                <button class="btn position-absolute" type="submit" style="top: 50%; transform: translateY(-50%); right: 10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg>
-                </button>
-            </div>
-        </form>
-
-
+    <header class="blog-header">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid mb-2">
+          <div class="nav-scroller py-7 mb-2">
+          <nav class="nav d-flex justify-content-center">
+            <a class="p-2 text-muted" href="<?= base_url() ?>posts/categoria/futebol">Futebol</a>
+            <a class="p-2 text-muted" href="<?= base_url() ?>posts/categoria/ufc">UFC</a>
+          </nav>
         </div>
-      </nav>
-      </header>
-      <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-muted" href="<?= base_url() ?>posts/categoria/futebol">Futebol</a>
-          <a class="p-2 text-muted" href="<?= base_url() ?>posts/categoria/ufc">UFC</a>
-          <a class="p-2 text-muted" href="#">Politica</a>
-          <a class="p-2 text-muted" href="#">Design</a>
-          
-        </nav>
-      </div>
+            <a class="navbar-brand ms-auto" href="<?= base_url() ?>home">
+                <img src="<?= base_url('/assets/images/logoVN.png') ?>" alt="VNOTARO Logo" style="height: 50px;">
+            </a>
+            <form method="POST" action="<?= base_url('posts/pesquisar') ?>" class="d-flex">
+                <div class="form-group position-relative">
+                    <input type="text" name="busca" id="busca" class="form-control pl-5" placeholder="Pesquisar">
+                    <button class="btn position-absolute" type="submit" style="top: 50%; transform: translateY(-50%); right: 10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </nav>
+    
+</header>
    
     <script>
       Holder.addTheme('thumb', {
@@ -67,6 +63,7 @@
 
 a.p-2.text-muted {
     color: black !important;
+
 }
 
 

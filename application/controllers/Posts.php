@@ -105,5 +105,16 @@ class Posts extends CI_Controller
         $this->load->view('pages/categorias', $dados); // View para listar postagens filtradas
     }
 
-    
+    public function myposts()
+	{
+		$dados["posts"]  = $this->Posts_model->myposts_index();
+		$dados["title"] = "My posts - CodeIgniter";
+
+		
+        $this->load->view('templates/header', $dados);
+		$this->load->view('templates/nav-top', $dados);
+		$this->load->view('pages/my-posts', $dados);
+		$this->load->view('templates/footer', $dados);
+		$this->load->view('templates/js', $dados);
+	}
 }

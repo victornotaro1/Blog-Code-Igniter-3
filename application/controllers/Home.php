@@ -6,7 +6,7 @@ class Home extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
-		permission();
+		// permission();
 		$this->load->model("home_model");
 		$this->load->model("Posts_model"); // Carrega o modelo de postagens
 		

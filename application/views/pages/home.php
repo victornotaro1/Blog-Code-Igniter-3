@@ -9,17 +9,21 @@
 <body>
 
 <?php foreach (array_slice($posts, 0, 1) as $index => $post) : ?>
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-success" 
-         style="background-image: url('<?= !empty($post["image_url"]) ? $post["image_url"] : '' ?>'); background-size: cover; background-position: center;">
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic"><?= $post["titulo"] ?></h1>
-            <p class="lead my-3"><?= $post["conteudo"] ?></p>
-            <button type="button" class="btn">
-                <a href="<?= base_url('noticia/ver/' . $post['id']) ?>" class="text-light">Continuar lendo</a>
-            </button>
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-success"
+            style="background-image: url('<?= !empty($post["image_url"]) ? $post["image_url"] : '' ?>'); background-size: cover; background-position: center; position: relative;">
 
-        </div>
-    </div> 
+            <!-- Camada de sobreposição escura -->
+            <div style="background-color: rgba(0, 0, 0, 0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+
+            <div class="col-md-6 px-0" style="position: relative; z-index: 1;">
+                <h1 class="display-4 font-italic"><?= $post["titulo"] ?></h1>
+                <p class="lead my-3"><?= $post["conteudo"] ?></p>
+                <button type="button" class="btn">
+                    <a href="<?= base_url('noticia/ver/' . $post['id']) ?>" class="text-light">Continuar lendo</a>
+                </button>
+            </div>
+
+    </div>
     
 <?php endforeach; ?>
 
@@ -28,7 +32,7 @@
         <div class="col-md-6">
             <div class="card h-100" style="background-image: url('<?= $post['image_url'] ?>'); background-size: cover; background-position: center; height: 300px;">
                 <div class="card-body d-flex flex-column align-items-start" style="background-color: rgba(0, 0, 0, 0.5);">
-                    <strong class="d-inline-block mb-2 text-primary">Jogos</strong>
+                    <strong class="d-inline-block mb-2 text-success"><?= $post["categoria"] ?></strong>
                     <h3 class="mb-0">
                         <a class="text-light" href="#"><?= $post["titulo"] ?></a>
                     </h3>
@@ -49,14 +53,14 @@
     <div class="row">
         <div class="col-md-8 blog-main">
             <h3 class="pb-3 mb-4 font-italic border-bottom"></h3>
-            <?php foreach (array_slice($posts, 3, 3) as $index => $post) : ?>
+            <?php foreach (array_slice($posts, 3, 4) as $index => $post) : ?>
                 <div class="blog-post">
                     <h2 class="blog-post-title"><?= $post["titulo"] ?></h2>
-                    <p class="blog-post-meta">Escrito por <a href="#"><?= $post["autor"] ?></a>, em <?= $post["data_criacao"] ?></p>
+                    <p class="blog-post-meta">Escrito por <?= $post["autor"] ?></a>, em <?= $post["data_criacao"] ?></p>
                     <p><?= $post["conteudo"] ?></p>
                     <div class="text-right">
                         <button type="button" class="btn">
-                            <a href="<?= base_url('noticia/ver/' . $post['id']) ?>" class="text-light">Continuar lendo</a>
+                            <a href="<?= base_url('noticia/ver/' . $post['id']) ?>" class="text-dark">Ver mais...</a>
                         </button>
                     </div>
                     <hr>
@@ -84,7 +88,7 @@
                         <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
                         <img src="<?= $post['image_url'] ?>" alt="Imagem do Post" width="100%" height="96">
                         <div class="col-lg-8">
-                            <h6 class="mb-0"><?= $post["titulo"] ?></h6>
+                            <h6 class="mb-0 "><?= $post["titulo"] ?></h6>
                             <small class="text-body-secondary"><?= $post["data_criacao"] ?></small>
                         </div>
                         </a>

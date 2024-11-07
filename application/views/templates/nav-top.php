@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-dark fixed-top bg-light flex-md-nowrap p-0 shadow">
   
 <!-- <nav class="navbar navbar-dark fixed-top  bg-primary flex-md-nowrap ">-->
 
@@ -57,6 +57,12 @@
             <a class="nav-link" href="<?= base_url() ?>games/mygames">
               <span data-feather="shopping-cart"></span>
               My Games
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url() ?>posts/myposts">
+              <span data-feather="shopping-cart"></span>
+              My Posts
             </a>
           </li>
         </ul>

@@ -36,4 +36,11 @@ class Posts_model extends CI_Model
         return $this->db->get('tb_post')->result_array(); // Retorna as postagens filtradas
     }
 
+    public function myposts_index()
+		{
+			$this->db->where("user_id", $_SESSION["logged_user"]["id"]);
+			$this->db->order_by("id", "DESC");
+			return $this->db->get("tb_post")->result_array();
+		}
+
 }
