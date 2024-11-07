@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,8 @@
 <body>
 
 <?php foreach (array_slice($posts, 0, 1) as $index => $post) : ?>
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-success" 
-         style="background-image: url('<?= !empty($post["image_url"]) ? $post["image_url"] : '' ?>'); background-size: cover; background-position: center;">
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-success"
+         style="background-image: url('<?= !empty($post["image_url"]) ? $post["image_url"] : '' ?>'); background-size: cover; background-position: center; ">
         <div class="col-md-6 px-0">
             <h1 class="display-4 font-italic"><?= $post["titulo"] ?></h1>
             <p class="lead my-3"><?= $post["conteudo"] ?></p>
